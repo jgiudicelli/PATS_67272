@@ -1,4 +1,6 @@
 PATS67272::Application.routes.draw do
+  resources :owners
+
   resources :animals
 
   # The priority is based upon order of creation:
