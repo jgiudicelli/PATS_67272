@@ -1,4 +1,5 @@
 FactoryGirl.define do
+  
   factory :animal do
     name "Cat"
   end
@@ -26,10 +27,8 @@ FactoryGirl.define do
     female true
     active true
     date_of_birth 10.years.ago
-    # association :owner, :first_name => 'Alex', :last_name => 'Heimann', :email => 'alex.heimann@example.com', :phone => '4122688211'
-    # association :animal, :name => 'Cat'
-    owner
-    animal
+    association :owner  # don't have to put the word association in front, but I think it helps...
+    association :animal
   end
   
   factory :visit do 
@@ -42,13 +41,14 @@ FactoryGirl.define do
   factory :vaccination do 
     association :visit
     association :vaccine
+    dosage "250 ml"
   end
   
 end
 
 
-# FACTORIES FOR PATS (OLD STYLE)
-# -------------------------------
+# FACTORIES FOR PATS (OLD STYLE, STILL WORKS)
+# -------------------------------------------
 # # Create factory for Animal class
 #   Factory.define :animal do |a|
 #     a.name "Cat"

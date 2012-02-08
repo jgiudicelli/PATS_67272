@@ -7,8 +7,8 @@ class Vaccination < ActiveRecord::Base
 
   # Scopes
   # -----------------------------
-  # by default, order by visits in descending order (most recent first)
-  scope :all, joins(:visit).order('date DESC')
+  # order by visits in descending order (most recent first)
+  scope :chronological, joins(:visit).order('date DESC')
   # get all the vaccinations that adminstered a particular vaccine
   scope :for_vaccine, lambda {|vaccine_id| where("vaccine_id = ?", vaccine_id) }
   # get all the vaccinations given on a particular visit
@@ -21,13 +21,13 @@ class Vaccination < ActiveRecord::Base
   # -----------------------------
   validates_presence_of :vaccine_id, :visit_id
   # make sure the vaccine selected is one that is offered by PATS
-  validates_inclusion_of :vaccine_id, :in => Vaccine.all.map{|v| v.id}, :message => "is not available at PATS"
+  # validates_inclusion_of :vaccine_id, :in => Vaccine.all.map{|v| v.id}, :message => "is not available at PATS"
   # validates_inclusion_of :vaccine_id, :in => (1..54).to_a, :message => "is not available at PATS"
 
   # make sure that the vaccine is appropriate for the animal getting it
   # needs to be commented out for unit tests because it doesn't play nice
   # with factory_girl
-  validate :vaccine_matches_animal_type?
+  # validate :vaccine_matches_animal_type?
 
   private
   # NOTE: this method is tested in both console and in a browser and it works.
