@@ -1,0 +1,807 @@
+@charset "utf-8";
+
+/********** TEXT ********/
+html, body {
+	background:url(/images/layout/black_background.gif);
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+}
+
+p {
+	text-align: justify;
+	line-height: 1.5;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	margin-right:10px;
+}
+.note {
+	font-size: 90%;	
+	font-style: italic;
+}
+
+.error {
+	font-size:85%;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color: #FF0000;
+	font-weight: bold;
+}
+.msg {
+	color: #00843c;
+	font: bold 90% Verdana, Arial, Helvetica, sans-serif;
+}
+
+
+.medtext {
+	font-size:90%;
+}
+.smtext {
+	font-size:80%;
+}
+.title {
+	font-size:125%;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	line-height: 1.5;
+}
+
+.medtitle {
+	font-size:110%;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	line-height: 1.5;
+}
+.supertiny{
+	font-size:5px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	text-decoration:none;
+}
+
+.announce {
+	font-size:120%;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+.announce_red {
+	font-size:120%;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #FF0000;
+}
+
+.klingon {
+	text-align: center;
+	font-size: 80%;
+}
+
+#notice {
+	color: #00AB56;
+	text-align: center;
+	font-style:italic;
+}
+
+/********** MISC ********/
+
+h1 {
+	font-size:180%;
+	color:#000000;
+	margin:.10em 0 .25em 0;
+}
+
+h2 {
+	color:#000000;
+	font-style:italic;
+	font-size:120%;
+}
+
+h3 {
+	color:#fff;
+	font-style:italic;
+	font-size:120%;
+}
+
+label {
+	font-size:95%;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+a:link {
+	color: #0033ff; 
+	text-decoration:none;
+}
+
+a:visited {
+  color: #0033FF;
+  text-decoration:none;
+}
+
+a:hover {
+  color: #0033FF;;
+  text-decoration:underline;
+}
+
+
+/********** FROM SCAFFOLDING ********/
+
+.fieldWithErrors {
+  padding: 0px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 260px;
+  border: 2px solid red;
+  padding: 5	px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+  font-size: 15px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+
+
+@charset "utf-8";
+/* CSS Document */
+
+#wrap {
+	width:900px;
+	margin:0 auto;
+	padding:0;
+	background:url(/images/layout/body_bg_900.jpg) repeat-y top left;
+}
+
+#header {
+	background:url(/images/layout/PATS_logo2_900.jpg) no-repeat top left;
+	height:100px;
+}
+
+#nav {
+	margin-right:5px;
+	margin-left:5px;
+	padding:5px;
+	height:30px;
+	background:url(../images/layout/steel_bg.gif) repeat-x top left;
+}
+
+#side_nav {
+	padding:0px;
+	font-size: 120%;
+	/* background-color: #000000; */
+	background:url(../images/layout/steel_bg.gif) repeat-y top left;
+}
+
+#body {
+	margin:0 10px;
+	padding:5px;
+}
+
+#body img {
+	float: left;
+	padding-right: 15px;
+	padding-bottom: 10px;
+	border: 0px;
+}
+
+#body img.right {
+	float: right;
+	padding-left: 15px;
+	padding-bottom: 10px;
+}
+
+#footer {
+	margin:0;
+	padding:10px 15px 5px 15px;
+	background:url(../images/layout/footer_900.jpg) no-repeat bottom left;
+	text-align:center;
+	font-size: 93%;
+}
+
+#copy {
+	margin: 7px auto;
+	color:black;
+	text-align:center;
+	font-size:85%;
+}
+
+#copy a {
+	color: #0033ff;
+	text-decoration: none;
+}
+
+#copy a:hover {
+	color: #0033ff;
+	text-decoration: underline;
+}
+
+
+
+/********** TABLE FORMATTING ********/
+
+td {
+	vertical-align: top;
+}
+
+.tblborder {
+	border-right-width:0px;
+    border-right-color:black;
+    border-right-style:solid;
+	border-left-width:0px;
+    border-left-color:black;
+    border-left-style:solid;
+	border-top-width:0px;
+    border-top-color:black;
+    border-top-style:solid;
+	border-bottom-width:0px;
+    border-bottom-color:black;
+    border-bottom-style:solid;
+}
+
+.trow {
+	font-weight: bold;
+	color: #ffffff;
+	background-color: #666;
+	height: 28px;
+}
+
+.quizrow {
+	vertical-align: top;
+	line-height: 12px;
+}
+
+
+/********** MAIN NAV ********/
+
+
+#nav ul {
+	display:block;
+	height:30px;
+	width:750px;
+	max-width:900px;
+	z-index:5;
+	margin: 0px;
+	padding: 0px;
+	white-space: nowrap;
+	list-style:none;
+	margin:0 auto;
+	font-size:150%;
+	font-weight:bold;
+}
+
+#nav li { 
+	font-size: 110%;
+	list-style-type: none;
+	float:left;
+	height:39px;
+	position:relative;
+	padding:0 15px 0 15px;
+	color: #000;
+}
+
+#nav a { 
+	display:block;
+	height:100%;
+}
+
+#nav span { 
+	padding:0 19px 0 10px;
+	display:block;
+	height:100%;
+	background:url(../images/layout/yellow_down_arrow.gif) right top no-repeat;
+}
+
+#nav span:hover {
+	cursor:pointer;
+}
+
+#nav a:link, #nav a:visited {
+	color: #000;
+	text-decoration: none;
+}
+
+#nav a:hover {
+    background: url(../images/layout/hover_overlay.png) no-repeat top left transparent;
+	text-decoration: none;
+	text-decoration:underline;
+}
+
+#nav li:hover ul {
+	left: 15px;
+}
+
+#nav li ul {
+	position: absolute;
+	width:11em;
+	left: -999em;
+	padding:0 6px 6px 0;
+	margin:0;
+	margin-top:-20px;
+	font-size:85%;
+}
+
+#nav li ul li {
+	float:right;
+	height:auto;
+	list-style-type: circle;
+	padding:0;
+	margin:0;
+	width:100%;
+	border-top:1px solid #393c3e;
+	border-bottom:1px solid #1d2022;
+	background-color:#222628;
+}
+
+#nav li ul li a, #nav li ul li a:link, #nav li ul li a:visited {
+	padding:10px 10px;
+	margin:0;
+	text-decoration: none;
+	color:#000;
+}
+
+#nav li ul li:hover {
+	color: #fff;
+	float:right;
+	height:auto;
+	padding:0;
+	margin:0;
+	width:100%;
+	border-top:1px solid #3a3e40;
+	border-bottom:1px solid #1d2022;
+	background-color: #3a3e40;
+}
+
+#nav li ul li:hover a {
+	padding:10px 10px;
+	margin:0;
+	color: #000;
+}
+
+/********** SIDE NAV ********/
+
+#side_nav h3 {
+	padding: 8px 3px 8px 3px;
+	margin: 5px 5px 5px 5px;
+	color: #000;
+	font-size: 130%;
+	border-bottom-width:1px;
+    border-bottom-color:#000;
+    border-bottom-style:solid;
+}
+
+#side_nav ul {
+	width: 200px;
+	padding: 0px;
+	list-style:none;
+	margin:0 3px 0 5px;
+	font-weight:bold;
+	color: #fff;
+}
+
+#side_nav li { 
+	font-size: 110%;
+	list-style-type: none;
+	line-height:2;
+	padding:0 15px 0 15px;
+	color: #fff;
+}
+
+#side_nav a {
+	color: #fff;
+	text-decoration: none;
+}
+
+#side_nav a:link, #side_nav a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+
+#side_nav a:hover {
+	text-decoration:underline;
+}
+
+#side_nav li:hover ul {
+	left: 15px;
+}
+
+#side_nav li ul {
+	padding:0 6px 6px 0;
+}
+
+#side_nav li ul li {
+	font-size:85%;
+	padding:0;
+	margin-left:15px;
+}
+
+#side_nav li ul li a, #side_nav li ul li a:link, #side_nav li ul li a:visited {
+	text-decoration: none;
+}
+
+
+#side_nav li ul li:hover a {
+	text-decoration: underline;
+}
+
+
+/********** WIDGETS ********/
+.widget1 {
+	background:url(/images/layout/section_marker.gif) top left no-repeat;
+	padding: 1px 0 0 10px;
+	margin: 0 0 2em 0;
+	font-size: 86%;
+}
+
+.widget2 {
+	padding: 8px 0 0 16px;
+	margin: 0 0 2em 0;
+	font-size: 86%;
+}
+
+
+.announce {
+	font-weight: normal;
+	font-size: 95%;
+}
+
+.announce ul li {
+	list-style-image: url(/images/icons/knight_bullet_3.gif);
+}
+
+#sections {
+	border:1px solid #000000;
+	background-color:#bfbfbf;
+}
+
+
+
+.pfbox {
+	font-size:9px;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	color: #000099;
+	width:60px;
+	padding:5px;
+	float:	right;
+	background:#FFFFFF;	
+	border-right-width:1px;
+    border-right-color:#CCCCCC;
+    border-right-style:solid;
+	border-left-width:1px;
+    border-left-color:#CCCCCC;
+    border-left-style:solid;
+	border-top-width:1px;
+    border-top-color:#CCCCCC;
+    border-top-style:solid;
+	border-bottom-width:1px;
+    border-bottom-color:#CCCCCC;
+    border-bottom-style:solid;
+}
+
+.pfbox a {
+	text-align: center;
+	vertical-align: middle;
+	font-size:9px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration:none;
+}
+
+.pfbox:hover {
+	font-size:9px;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	color: #FFFFFF;
+	width:60px;
+	padding:5px;
+	float:	right;
+	background:#FF0000;	
+}
+
+
+/* -- DATAGRID CSS -- */
+
+/*	=============================================== */
+/*	General table stuff for datagrid css class */
+
+table.datagrid {   
+	font: 90% Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	text-align: left;
+	border-collapse: collapse;
+}
+
+table.datagrid a {
+	text-decoration: none;
+	color: #000000;
+}
+table.datagrid a:hover {
+	text-decoration: underline;
+	color: #0033ff;
+}
+
+/*	=============================================== */
+/*	Time to deal with Table Caption and Header Row  */
+
+caption.datagrid {
+	height: 45px;
+	line-height: 44px;
+	color: #000000;
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+thead.datagrid th {
+	font-size: 105%;
+	color: #ffffff;
+	background:url(../images/layout/steel_bg.gif) repeat-x top left;
+	/* background-color: #000000; */
+	height: 28px;
+	font-weight: bold;
+	padding: 10px;
+}
+thead.datagrid th:hover {
+	/* background-color: nothing changes right now */
+	
+}
+
+td {
+	padding: 0 10px 0 10px;
+}
+
+
+/*	=============================================== */
+/*	TR elements handled here (main rows only)  */
+
+.dg_list_line_odd {
+	font: 90% Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	text-align: left;
+	vertical-align: top;
+	line-height: 2.5;
+	padding: 3px;
+}
+.dg_list_line_even {
+	font: 90% Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	text-align: left;
+	vertical-align: top;
+	line-height: 2.5;
+	background-color: #FCFFA9;
+	padding: 3px;
+}
+.dg_list_line_even img {
+	vertical-align: top;
+	padding: 5px 0px 3px 8px;
+}
+.dg_list_line_odd img {
+	vertical-align: top;
+	padding: 5px 0px 3px 8px;
+}
+.dg_list_line_odd:hover {
+	background-color: #B5CEFF;
+	color: #0033ff;
+}
+.dg_list_line_odd:hover a {
+	background-color: #B5CEFF;
+	color: #0033ff;
+	text-decoration: underline;
+}
+.dg_list_line_even:hover {
+	background-color: #B5CEFF;
+	color: #0033ff;
+}
+.dg_list_line_even:hover a {
+	background-color: #B5CEFF;
+	color: #0033ff;
+	text-decoration: underline;
+}
+
+
+/*	=============================================== */
+/*	TR elements handled here (alt rows only)  */
+
+tr.dg {
+	line-height: 2;
+	padding: 2px;
+}
+tr.dgalt,th.dgalt,td.dgalt {
+	padding: .75em;
+}
+tr.dgalt:hover {
+	background-color: #FFFF99;
+	color: #0033ff;
+}
+tr.dgalt:hover a {
+	text-decoration: underline;
+	color: #0033ff;
+	background-color: #FFFF99;
+}
+
+
+/*	=============================================== */
+/*	table foot elements handled here  */
+
+tfoot.datagrid tr {
+	/* background-color: nothing set at this time */
+}
+tfoot.datagrid td, tfoot.datagrid th{
+	color: #000;
+	border: 0px;
+}
+
+
+/* -------------------------------------------------------------------------------------------------
+
+It's *strongly* suggested that you don't modify this file.  Instead, load a new stylesheet after
+this one in your layouts (eg formtastic_changes.css) and override the styles to suit your needs.
+This will allow you to update formtastic.css with new releases without clobbering your own changes.
+
+This stylesheet forms part of the Formtastic Rails Plugin
+(c) 2008 Justin French
+
+--------------------------------------------------------------------------------------------------*/
+
+
+/* NORMALIZE AND RESET - obviously inspired by Yahoo's reset.css, but scoped to just form.formtastic
+--------------------------------------------------------------------------------------------------*/
+form.formtastic, form.formtastic ul, form.formtastic ol, form.formtastic li, form.formtastic fieldset, form.formtastic legend, form.formtastic input, form.formtastic textarea, form.formtastic select, form.formtastic p { margin:0; padding:0; }
+form.formtastic fieldset { border:0; }
+form.formtastic em, form.formtastic strong { font-style:normal; font-weight:normal; }
+form.formtastic ol, form.formtastic ul { list-style:none; }
+form.formtastic abbr, form.formtastic acronym { border:0; font-variant:normal; }
+form.formtastic input, form.formtastic textarea, form.formtastic select { font-family:inherit; font-size:inherit; font-weight:inherit; }
+form.formtastic input, form.formtastic textarea, form.formtastic select { font-size:100%; }
+form.formtastic legend { color:#000; }
+
+
+/* FIELDSETS & LISTS
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset { }
+form.formtastic fieldset.inputs { }
+form.formtastic fieldset.buttons { padding-left:25%; }
+form.formtastic fieldset ol { }
+form.formtastic fieldset.buttons li { float:left; padding-right:0.5em; }
+
+/* clearfixing the fieldsets */
+form.formtastic fieldset { display: inline-block; }
+form.formtastic fieldset:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+html[xmlns] form.formtastic fieldset { display: block; }
+* html form.formtastic fieldset { height: 1%; }
+
+
+/* INPUT LIs
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset ol li { margin-bottom:1.5em; }
+
+/* clearfixing the li's */
+form.formtastic fieldset ol li { display: inline-block; }
+form.formtastic fieldset ol li:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+html[xmlns] form.formtastic fieldset ol li { display: block; }
+* html form.formtastic fieldset ol li { height: 1%; }
+
+form.formtastic fieldset ol li.required { }
+form.formtastic fieldset ol li.optional { }
+form.formtastic fieldset ol li.error { }
+  
+
+/* LABELS
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset ol li label { display:block; width:25%; float:left; padding-top:.2em; }
+form.formtastic fieldset ol li li label { line-height:100%; padding-top:0; }
+form.formtastic fieldset ol li li label input { line-height:100%; vertical-align:middle; margin-top:-0.1em;}
+
+
+/* NESTED FIELDSETS AND LEGENDS (radio, check boxes and date/time inputs use nested fieldsets)
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset ol li fieldset { position:relative; }
+form.formtastic fieldset ol li fieldset legend { position:absolute; width:25%; padding-top:0.1em; }
+form.formtastic fieldset ol li fieldset legend span { position:absolute; }
+form.formtastic fieldset ol li fieldset legend.label label { position:absolute; }
+form.formtastic fieldset ol li fieldset ol { float:left; width:74%; margin:0; padding:0 0 0 25%; }
+form.formtastic fieldset ol li fieldset ol li { padding:0; border:0; }
+
+
+/* INLINE HINTS
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset ol li p.inline-hints { color:#666; margin:0.5em 0 0 25%; }
+
+
+/* INLINE ERRORS
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset ol li p.inline-errors { color:#cc0000; margin:0.5em 0 0 25%; }
+form.formtastic fieldset ol li ul.errors { color:#cc0000; margin:0.5em 0 0 25%; list-style:square; }
+form.formtastic fieldset ol li ul.errors li { padding:0; border:none; display:list-item; }
+
+
+/* STRING & NUMERIC OVERRIDES
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset ol li.string input { width:74%; }
+form.formtastic fieldset ol li.password input { width:74%; }
+form.formtastic fieldset ol li.numeric input { width:74%; }
+
+
+/* TEXTAREA OVERRIDES
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset ol li.text textarea { width:74%; }
+
+
+/* HIDDEN OVERRIDES
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset ol li.hidden { display:none; }
+
+
+/* BOOLEAN OVERRIDES
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset ol li.boolean label { padding-left:25%; width:auto; }
+form.formtastic fieldset ol li.boolean label input { margin:0 0.5em 0 0.2em; }
+
+
+/* RADIO OVERRIDES
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset ol li.radio { }
+form.formtastic fieldset ol li.radio fieldset ol { margin-bottom:-0.6em; }
+form.formtastic fieldset ol li.radio fieldset ol li { margin:0.1em 0 0.5em 0; }
+form.formtastic fieldset ol li.radio fieldset ol li label { float:none; width:100%; }
+form.formtastic fieldset ol li.radio fieldset ol li label input { margin-right:0.2em; }
+
+
+/* CHECK BOXES (COLLECTION) OVERRIDES
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset ol li.check_boxes { }
+form.formtastic fieldset ol li.check_boxes fieldset ol { margin-bottom:-0.6em; }
+form.formtastic fieldset ol li.check_boxes fieldset ol li { margin:0.1em 0 0.5em 0; }
+form.formtastic fieldset ol li.check_boxes fieldset ol li label { float:none; width:100%; }
+form.formtastic fieldset ol li.check_boxes fieldset ol li label input { margin-right:0.2em; }
+
+
+
+/* DATE & TIME OVERRIDES
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset ol li.date fieldset ol li,
+form.formtastic fieldset ol li.time fieldset ol li,
+form.formtastic fieldset ol li.datetime fieldset ol li { float:left; width:auto; margin:0 .3em 0 0; }
+
+form.formtastic fieldset ol li.date fieldset ol li label,
+form.formtastic fieldset ol li.time fieldset ol li label,
+form.formtastic fieldset ol li.datetime fieldset ol li label { display:none; }
+
+form.formtastic fieldset ol li.date fieldset ol li label input, 
+form.formtastic fieldset ol li.time fieldset ol li label input, 
+form.formtastic fieldset ol li.datetime fieldset ol li label input { display:inline; margin:0; padding:0;  }
+
+
+/* -------------------------------------------------------------------------------------------------
+
+Load this stylesheet after formtastic.css in your layouts to override the CSS to suit your needs.
+This will allow you to update formtastic.css with new releases without clobbering your own changes.
+
+For example, to make the inline hint paragraphs a little darker in color than the standard #666:
+
+form.formtastic fieldset ol li p.inline-hints { color:#333; }
+
+--------------------------------------------------------------------------------------------------*/
