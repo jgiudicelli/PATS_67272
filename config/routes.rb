@@ -1,4 +1,6 @@
 PATS67272::Application.routes.draw do
+  resources :vaccines
+
   resources :vaccinations
 
   resources :pets
