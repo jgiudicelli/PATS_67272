@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  vaccine_id: 1
+  visit_id: 1
+  dosage: MyString
+
+two:
+  vaccine_id: 1
+  visit_id: 1
+  dosage: MyString
