@@ -39,6 +39,11 @@ FactoryGirl.define do
     association :pet
   end
   
+  factory :vaccination do 
+    association :visit
+    association :vaccine
+  end
+  
 end
 
 
