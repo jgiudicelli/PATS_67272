@@ -3,11 +3,11 @@ FactoryGirl.define do
     name "Cat"
   end
   
-  # factory :vaccine do
-  #   name "Leukemia"
-  #   duration 365
-  #   association :animal
-  # end
+  factory :vaccine do
+    name "Leukemia"
+    duration 365
+    association :animal
+  end
   
   factory :owner do
     first_name "Alex"
@@ -32,12 +32,17 @@ FactoryGirl.define do
     animal
   end
   
-  
+  factory :visit do 
+    date 6.months.ago.to_date
+    weight 5
+    notes "The cat has a lot of hair and sheds often.  Recommend shaving the cat."
+    association :pet
+  end
   
 end
 
 
-# FACTORIES FOR PATS 
+# FACTORIES FOR PATS (OLD STYLE)
 # -------------------------------
 # # Create factory for Animal class
 #   Factory.define :animal do |a|

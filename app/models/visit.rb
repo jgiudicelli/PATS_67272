@@ -11,16 +11,16 @@ class Visit < ActiveRecord::Base
   # Scopes
   # -----------------------------
   # by default, order by visits in descending order (most recent first)
-   scope :alphabetical, order('visit_date DESC')
+   scope :chronological, order('date DESC')
    # get all the visits by a particular pet
    scope :for_pet, lambda {|pet_id| where('pet_id = ?', pet_id) }
    # get the last X visits
-   scope :last, lambda {|num| limit(num).order('visit_date DESC') }
+   scope :last, lambda {|num| limit(num).order('date DESC') }
 
   
   # Validations
   # -----------------------------
-  validates_presence_of :pet_id, :weight, :visit_date
+  validates_presence_of :pet_id, :weight, :date
   # weight must be an integer greater than 0 and less than 100 (none of our animal types will exceed)
   validates_numericality_of :weight, :only_integer => true, :greater_than => 0, :less_than => 100
   

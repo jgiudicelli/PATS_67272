@@ -8,7 +8,7 @@ class Vaccination < ActiveRecord::Base
   # Scopes
   # -----------------------------
   # by default, order by visits in descending order (most recent first)
-  scope :all, joins(:visit).order('visit_date DESC')
+  scope :all, joins(:visit).order('date DESC')
   # get all the vaccinations that adminstered a particular vaccine
   scope :for_vaccine, lambda {|vaccine_id| where("vaccine_id = ?", vaccine_id) }
   # get all the vaccinations given on a particular visit
