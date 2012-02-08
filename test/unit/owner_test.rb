@@ -83,9 +83,9 @@ class OwnerTest < ActiveSupport::TestCase
       assert_equal false, @rachel.active
     end
     
-    # test the named scope 'all'
+    # test the named scope 'alphabetical'
     should "shows that there are three owners in in alphabetical order" do
-      assert_equal ["Alex", "Mark", "Rachel"], Owner.all.map{|o| o.first_name}
+      assert_equal ["Alex", "Mark", "Rachel"], Owner.alphabetical.map{|o| o.first_name}
     end
     
     # test the named scope 'active'
