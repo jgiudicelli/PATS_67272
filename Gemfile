@@ -25,3 +25,10 @@ group :test do
 	gem "mocha"
 	gem 'simplecov'
 end
+
+group :development do
+	gem 'populator3'
+	gem 'faker'
+	gem 'hirb'
+	gem 'wirble'
+end
