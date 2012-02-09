@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(:version => 20120208033531) do
     t.string   "phone"
     t.string   "email"
     t.boolean  "active"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "state"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.string   "state",      :default => "PA"
   end
 
   create_table "pets", :force => true do |t|
