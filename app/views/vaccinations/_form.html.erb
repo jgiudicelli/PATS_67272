@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :vaccine_id %><br />
-    <%= f.number_field :vaccine_id %>
+    <%= f.select :vaccine_id, get_vaccine_options, :prompt => "Select ..." %>
   </div>
   <div class="field">
     <%= f.label :visit_id %><br />
-    <%= f.number_field :visit_id %>
+    <%= f.select :visit_id, get_visit_options, :prompt => "Select ..." %>
   </div>
   <div class="field">
     <%= f.label :dosage %><br />
