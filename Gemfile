@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.1'
 gem 'sqlite3'
 gem 'will_paginate'
+gem 'nifty-generators'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -26,9 +27,13 @@ group :test do
 	gem 'simplecov'
 end
 
+# Gems used only in development
 group :development do
 	gem 'populator3'
 	gem 'faker'
 	gem 'hirb'
 	gem 'wirble'
 end
+
+gem "bcrypt-ruby", :require => "bcrypt"
+
