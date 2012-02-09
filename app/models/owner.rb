@@ -6,7 +6,7 @@ class Owner < ActiveRecord::Base
   # -----------------------------
   has_many :pets # :dependent => :destroy  (:nullify orphans the record)
   has_many :visits, :through => :pets
-  # belongs_to :user  # implies that there is a user_id field which we will add later
+  belongs_to :user  
   
   
   # Scopes
@@ -16,7 +16,7 @@ class Owner < ActiveRecord::Base
   # get all the owners who are active (not moved out and pet is alive)
   scope :active, where('active = ?', true)
   # search for all the owners in the system by either first or last name
-  scope :search, lambda { |term| where('first_name LIKE ? OR last_name LIKE ?', "#{term}%", "#{term}%").order('last_name, first_name') }
+  scope :search, lambda { |term| where('first_name LIKE ? OR last_name LIKE ?', "#{term}%", "#{term}%") }
 
   # Misc Constants
   # -----------------------------
