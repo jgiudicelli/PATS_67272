@@ -1,5 +1,76 @@
 @charset "utf-8";
 
+#wrap {
+	width:900px;
+	margin:0 auto;
+	padding:0;
+	background:url(/images/layout/body_bg_900.jpg) repeat-y top left;
+}
+
+#header {
+	/*background:url(/images/layout/PATS_logo2_900.jpg) no-repeat top left;*/
+	height:100px;
+}
+
+#nav {
+	margin-right:5px;
+	margin-left:5px;
+	padding:5px;
+	height:30px;
+	background:url(../images/layout/steel_bg.gif) repeat-x top left;
+}
+
+#side_nav {
+	padding:0px;
+	font-size: 120%;
+	/* background-color: #000000; */
+	background:url(../images/layout/steel_bg.gif) repeat-y top left;
+}
+
+#body {
+	margin:0 10px;
+	padding:5px;
+}
+
+#body img {
+	float: left;
+	padding-right: 15px;
+	padding-bottom: 10px;
+	border: 0px;
+}
+
+#body img.right {
+	float: right;
+	padding-left: 15px;
+	padding-bottom: 10px;
+}
+
+#footer {
+	margin:0;
+	padding:10px 15px 5px 15px;
+	background:url(../images/layout/footer_900.jpg) no-repeat bottom left;
+	text-align:center;
+	font-size: 93%;
+}
+
+#copy {
+	margin: 7px auto;
+	color:black;
+	text-align:center;
+	font-size:85%;
+}
+
+#copy a {
+	color: #0033ff;
+	text-decoration: none;
+}
+
+#copy a:hover {
+	color: #0033ff;
+	text-decoration: underline;
+}
+
+
 /********** TEXT ********/
 html, body {
 	background:url(/images/layout/black_background.gif);
@@ -158,81 +229,6 @@ a:hover {
 #errorExplanation ul li {
   font-size: 12px;
   list-style: square;
-}
-
-
-
-@charset "utf-8";
-/* CSS Document */
-
-#wrap {
-	width:900px;
-	margin:0 auto;
-	padding:0;
-	background:url(/images/layout/body_bg_900.jpg) repeat-y top left;
-}
-
-#header {
-	background:url(/images/layout/PATS_logo2_900.jpg) no-repeat top left;
-	height:100px;
-}
-
-#nav {
-	margin-right:5px;
-	margin-left:5px;
-	padding:5px;
-	height:30px;
-	background:url(../images/layout/steel_bg.gif) repeat-x top left;
-}
-
-#side_nav {
-	padding:0px;
-	font-size: 120%;
-	/* background-color: #000000; */
-	background:url(../images/layout/steel_bg.gif) repeat-y top left;
-}
-
-#body {
-	margin:0 10px;
-	padding:5px;
-}
-
-#body img {
-	float: left;
-	padding-right: 15px;
-	padding-bottom: 10px;
-	border: 0px;
-}
-
-#body img.right {
-	float: right;
-	padding-left: 15px;
-	padding-bottom: 10px;
-}
-
-#footer {
-	margin:0;
-	padding:10px 15px 5px 15px;
-	background:url(../images/layout/footer_900.jpg) no-repeat bottom left;
-	text-align:center;
-	font-size: 93%;
-}
-
-#copy {
-	margin: 7px auto;
-	color:black;
-	text-align:center;
-	font-size:85%;
-}
-
-#copy a {
-	color: #0033ff;
-	text-decoration: none;
-}
-
-#copy a:hover {
-	color: #0033ff;
-	text-decoration: underline;
 }
 
 
