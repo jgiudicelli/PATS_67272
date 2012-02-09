@@ -1,0 +1,17 @@
+<td width="250">
+	<h2>Recent Visits:</h2>
+	<table class="datagrid">
+	  <thead class="datagrid">
+	    <th width="90">Visit</th>
+		<th width="60">Weight</th>
+	  </thead>
+  
+	<% for visit in @recent_visits %>
+	  <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+	    <td align="left"><%= link_to visit.visit_date.strftime("%m/%d/%y"), visit_path(visit) %></td>
+		<td align="left">&nbsp;<%= visit.weight %> lbs</td>
+	  </tr>
+	<% end %>
+	</table>
+	<p class="supertiny">&nbsp;</p>
+</td>
