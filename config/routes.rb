@@ -1,4 +1,6 @@
 PATS67272::Application.routes.draw do
+  match 'user/edit' => 'users#edit', :as => :edit_current_user
+
   # Authentication routes
   match 'user/edit' => 'users#edit', :as => :edit_user
   match 'signup' => 'users#new', :as => :signup
