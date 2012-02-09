@@ -48,6 +48,11 @@ class Owner < ActiveRecord::Base
     last_name + ", " + first_name
   end
   
+  # a method to get owner name in last, first format
+  def proper_name
+    first_name + " " + last_name
+  end
+  
   
   # Callback code
   # -----------------------------

@@ -1,83 +1,48 @@
 class VisitsController < ApplicationController
-  # GET /visits
-  # GET /visits.json
   def index
-    @visits = Visit.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @visits }
-    end
+    # get all visits in reverse chronological order, 10 per page
+    @visits = Visit.all.chronological.page(params[:page]).per_page(10)
   end
-
-  # GET /visits/1
-  # GET /visits/1.json
+  
   def show
+    # get the data for this particular visit
     @visit = Visit.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @visit }
-    end
+    # get all the vaccinations associated with this visit, if any
+    @vaccinations = @visit.vaccinations
   end
-
-  # GET /visits/new
-  # GET /visits/new.json
+  
   def new
     @visit = Visit.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @visit }
+  end
+  
+  def create
+    @visit = Visit.new(params[:visit])
+    if @visit.save
+      flash[:notice] = "Successfully added visit for #{@visit.pet.name}."
+      redirect_to @visit
+    else
+      render :action => 'new'
     end
   end
-
-  # GET /visits/1/edit
+  
   def edit
     @visit = Visit.find(params[:id])
   end
-
-  # POST /visits
-  # POST /visits.json
-  def create
-    @visit = Visit.new(params[:visit])
-
-    respond_to do |format|
-      if @visit.save
-        format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
-        format.json { render json: @visit, status: :created, location: @visit }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @visit.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /visits/1
-  # PUT /visits/1.json
+  
   def update
     @visit = Visit.find(params[:id])
-
-    respond_to do |format|
-      if @visit.update_attributes(params[:visit])
-        format.html { redirect_to @visit, notice: 'Visit was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @visit.errors, status: :unprocessable_entity }
-      end
+    if @visit.update_attributes(params[:visit])
+      flash[:notice] = "Successfully updated visit by #{@visit.pet.name}."
+      redirect_to @visit
+    else
+      render :action => 'edit'
     end
   end
-
-  # DELETE /visits/1
-  # DELETE /visits/1.json
+  
   def destroy
     @visit = Visit.find(params[:id])
     @visit.destroy
-
-    respond_to do |format|
-      format.html { redirect_to visits_url }
-      format.json { head :no_content }
-    end
+    flash[:notice] = "Successfully removed the visit of #{@visit.pet.name} on #{@visit.date.strftime('%b %%e')}."
+    redirect_to visits_url
   end
 end
