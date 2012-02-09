@@ -1,27 +1,30 @@
-<h1>Listing vaccines</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
+<h1>Vaccines Offered at PATS</h1><br>
+
+<table class="datagrid">
+  <thead class="datagrid">
+    <th>Vaccine</th>
     <th>Animal</th>
-    <th>Duration</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @vaccines.each do |vaccine| %>
-  <tr>
-    <td><%= vaccine.name %></td>
-    <td><%= vaccine.animal_id %></td>
-    <td><%= vaccine.duration %></td>
-    <td><%= link_to 'Show', vaccine %></td>
-    <td><%= link_to 'Edit', edit_vaccine_path(vaccine) %></td>
-    <td><%= link_to 'Destroy', vaccine, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+	<th>Duration</th>
+	<th>&nbsp;</th>
+  </thead>
+  <% for vaccine in @vaccines %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to vaccine.name, vaccine_path(vaccine) %></td>
+	  <td align="center"><%= link_to vaccine.animal.name, animal_path(vaccine.animal) %></td>
+	  <td align="center"><%= vaccine.duration %> days</td>
+	  <td align="center">
+		<%= link_to(image_tag("icons/edit_dg.gif", :border => 0), edit_vaccine_path(vaccine))  %>&nbsp;
+		<%= link_to(image_tag("icons/delete_dg.gif", :border => 0), vaccine_path(vaccine), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
+	  </td>
+    </tr>
+  <% end %>
 </table>
+<p class="supertiny"></p>
 
-<br />
+<!-- Add the pagination using will_paginate gem -->
+<span class="smtext">
+<%= will_paginate @vaccines, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
 
-<%= link_to 'New Vaccine', new_vaccine_path %>
+<p><strong><%= link_to "Add A New Vaccine", new_vaccine_path %></strong></p>

@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :animal_id %><br />
-    <%= f.number_field :animal_id %>
+    <%= f.collection_select :animal_id, Animal.all, :id, :name, :prompt => "Select ..." %>
   </div>
   <div class="field">
     <%= f.label :duration %><br />
