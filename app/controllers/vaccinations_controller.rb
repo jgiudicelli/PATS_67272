@@ -2,7 +2,7 @@ class VaccinationsController < ApplicationController
 
   def index
     # get all the data on vaccinations in the system, 10 per page
-    @vaccinations = Vaccination.all.chronological.page(params[:page]).per_page(10)
+    @vaccinations = Vaccination.chronological.paginate(params[:page]).per_page(10)
   end
 
   def show

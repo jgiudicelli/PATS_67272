@@ -1,7 +1,7 @@
 class VaccinesController < ApplicationController
   def index
     # get data on all vacines offered by PATS, 10 per page
-    @vaccines = Vaccine.all.alphabetical.page(params[:page]).per_page(10)
+    @vaccines = Vaccine.alphabetical.paginate(params[:page]).per_page(10)
   end
   
   def show

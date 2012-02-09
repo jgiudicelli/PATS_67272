@@ -4,7 +4,7 @@ class PetsController < ApplicationController
   
   def index
     # get data on all pets and paginate the output to 10 per page
-    @pets = Pet.all.active.alphabetical.page(params[:page]).per_page(10)
+    @pets = Pet.active.alphabetical.paginate(params[:page]).per_page(10)
     respond_with @pets
 
   end
