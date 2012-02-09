@@ -28,6 +28,10 @@
     <%= f.text_field :city %>
   </div>
   <div class="field">
+    <%= f.label :state %><br />
+    <%= f.select(:state, Owner::STATES_LIST) %>
+  </div>
+	<div class="field">
     <%= f.label :zip %><br />
     <%= f.text_field :zip %>
   </div>

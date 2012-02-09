@@ -1,29 +1,31 @@
-<h1>Listing visits</h1>
 
-<table>
-  <tr>
-    <th>Pet</th>
+<h1>Visits to PATS</h1><br>
+
+<table class="datagrid">
+  <thead class="datagrid">
     <th>Date</th>
-    <th>Weight</th>
-    <th>Notes</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @visits.each do |visit| %>
-  <tr>
-    <td><%= visit.pet_id %></td>
-    <td><%= visit.date %></td>
-    <td><%= visit.weight %></td>
-    <td><%= visit.notes %></td>
-    <td><%= link_to 'Show', visit %></td>
-    <td><%= link_to 'Edit', edit_visit_path(visit) %></td>
-    <td><%= link_to 'Destroy', visit, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+    <th>Pet</th>
+	<th>Weight</th>
+	<th>&nbsp;</th>
+  </thead>
+  <% for visit in @visits %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to visit.visit_date.strftime("%m/%d/%y"), visit_path(visit) %></td>
+      <td><%= link_to visit.pet.name, pet_path(visit.pet) %> (<%= visit.pet.animal.name %>)</td>
+      <td align="center"><%= visit.weight %> lbs</td>
+	  <td align="center">
+		<%= link_to(image_tag("icons/edit_dg.gif", :border => 0), edit_visit_path(visit))  %>&nbsp;
+		<%= link_to(image_tag("icons/delete_dg.gif", :border => 0), visit_path(visit), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
+	  </td>
+    </tr>
+  <% end %>
 </table>
+<p class="supertiny"></p>
 
-<br />
+<!-- Add the pagination using will_paginate gem -->
+<span class="smtext">
+<%= will_paginate @visits, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
 
-<%= link_to 'New Visit', new_visit_path %>
+<p><strong><%= link_to "Add A New Visit", new_visit_path %></strong></p>
+

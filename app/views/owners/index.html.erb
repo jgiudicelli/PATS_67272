@@ -1,37 +1,29 @@
-<h1>Listing owners</h1>
+<h1>Pet Owners Served by PATS</h1><br>
 
-<table>
-  <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Street</th>
-    <th>City</th>
-    <th>Zip</th>
+<table class="datagrid">
+  <thead class="datagrid">
+    <th>Owner</th>
     <th>Phone</th>
-    <th>Email</th>
-    <th>Active</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @owners.each do |owner| %>
-  <tr>
-    <td><%= owner.first_name %></td>
-    <td><%= owner.last_name %></td>
-    <td><%= owner.street %></td>
-    <td><%= owner.city %></td>
-    <td><%= owner.zip %></td>
-    <td><%= owner.phone %></td>
-    <td><%= owner.email %></td>
-    <td><%= owner.active %></td>
-    <td><%= link_to 'Show', owner %></td>
-    <td><%= link_to 'Edit', edit_owner_path(owner) %></td>
-    <td><%= link_to 'Destroy', owner, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+	<th>Email</th>
+	<th>&nbsp;</th>
+  </thead>
+  <% for owner in @owners %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to "#{owner.last_name}, #{owner.first_name}", owner_path(owner) %></td>
+      <td><%= number_to_phone owner.phone %></td>
+      <td><%= mail_to owner.email, owner.email, :encode => "javascript" %></td>
+	  <td align="center">
+		<%= link_to(image_tag("icons/edit_dg.gif", :border => 0), edit_owner_path(owner))  %>&nbsp;
+		<%= link_to(image_tag("icons/delete_dg.gif", :border => 0), owner_path(owner), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
+	  </td>
+    </tr>
+  <% end %>
 </table>
+<p class="supertiny"></p>
 
-<br />
+<!-- Add the pagination using will_paginate gem -->
+<span class="smtext">
+<%= will_paginate @owners, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
 
-<%= link_to 'New Owner', new_owner_path %>
+<p><strong><%= link_to "Add A New Owner", new_owner_path %></strong></p>

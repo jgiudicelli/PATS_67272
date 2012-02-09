@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :pet_id %><br />
-    <%= f.number_field :pet_id %>
+    <%= f.select :pet_id, get_pet_options, :prompt => "Select ..." %>
   </div>
   <div class="field">
     <%= f.label :date %><br />
-    <%= f.date_select :date %>
+    <%= f.date_select :date, :order => [:month, :day, :year] %>
   </div>
   <div class="field">
     <%= f.label :weight %><br />
@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :notes %><br />
-    <%= f.text_area :notes %>
+    <%= f.text_area :notes, :cols => 30, :rows => 6 %>
   </div>
   <div class="actions">
     <%= f.submit %>

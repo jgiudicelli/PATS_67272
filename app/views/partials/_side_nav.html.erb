@@ -1,0 +1,29 @@
+<div id="side_nav">
+	<h3>Vet Options:</h3>
+	
+	<ul>
+	<!-- OPTIONS FOR EVERYONE -->
+		<li>
+			<% form_tag(search_path) do %>
+				<%= text_field_tag('query') %>
+				<%= submit_tag('Search') %>
+			<% end %>
+		</li>
+		<li><%= link_to 'Owners', owners_path %></li>
+		<li><%= link_to 'Pets', pets_path %></li>
+		<li><%= link_to 'Visits', visits_path %></li>
+		<li><%= link_to 'Vaccinations', vaccinations_path %></li>
+		<li>
+			<ul>Settings<br>
+			  <li><%= link_to 'Animal Types', animals_path %></li>
+			  <li><%= link_to 'Vaccines', vaccines_path %></li>
+			</ul>
+		</li>
+		<!-- can set this manually, or just use the named route 'logout' -->
+		<li>
+			<%# link_to 'Logout', { :controller => :sessions, :action => :destroy } %>
+			<%= link_to 'Logout', logout_path %>
+		</li>
+	</ul>
+	<p>&nbsp;</p>
+</div> <!-- end of side_nav div -->

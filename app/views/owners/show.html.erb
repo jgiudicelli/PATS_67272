@@ -1,45 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>First name:</b>
-  <%= @owner.first_name %>
+<table>
+	<tr valign="top">	
+		<td width="300">
+			<%= render :partial => "owner_data" %>
+		</td>
+		<td width="10">&nbsp;</td>
+		<td width="250">
+			<% unless @current_pets.empty? %>
+			  <%= render :partial => "current_pets" %>
+			<% end %>
+		</td>
+	</tr>
+</table>
+<p class="smtext">&nbsp;</p>
+<p>&nbsp;
+  <%= link_to "Edit", edit_owner_path(@owner) %> |
+  <%= link_to "Destroy", @owner, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", owners_path %>
 </p>
-
-<p>
-  <b>Last name:</b>
-  <%= @owner.last_name %>
-</p>
-
-<p>
-  <b>Street:</b>
-  <%= @owner.street %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @owner.city %>
-</p>
-
-<p>
-  <b>Zip:</b>
-  <%= @owner.zip %>
-</p>
-
-<p>
-  <b>Phone:</b>
-  <%= @owner.phone %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @owner.email %>
-</p>
-
-<p>
-  <b>Active:</b>
-  <%= @owner.active %>
-</p>
-
-
-<%= link_to 'Edit', edit_owner_path(@owner) %> |
-<%= link_to 'Back', owners_path %>

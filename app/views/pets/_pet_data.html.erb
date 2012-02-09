@@ -1,0 +1,25 @@
+<td width="300">
+	<h2>Pet Information:</h2>
+	<b>Name:&nbsp;&nbsp;</b>
+	  <%= @pet.name %><br /><br />
+
+	<b>Owner:&nbsp;&nbsp;</b>
+	  <%= link_to @pet.owner.name, owner_path(@pet.owner) %><br /><br />
+
+	<b>Type:&nbsp;&nbsp;</b>
+	  <%= @pet.animal.name %><br /><br />
+
+	<b>Gender:&nbsp;&nbsp;</b>
+	  <%= @pet.gender %><br /><br />
+
+	<b>Date of Birth:&nbsp;&nbsp;</b>
+	  <%= @pet.date_of_birth.strftime("%B %d, %Y") %><br /><br />
+
+	<b>Active with PATS?:&nbsp;&nbsp;</b>
+	  <%= @pet.active %><br><br><br>
+
+	  <%= link_to "Edit", edit_pet_path(@pet) %> |
+	  <%= link_to "Destroy", @pet, :confirm => 'Are you sure?', :method => :delete %> |
+	  <%= link_to "View All", pets_path %>
+</td>
+<td width="10">&nbsp;</td>

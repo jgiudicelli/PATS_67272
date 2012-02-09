@@ -1,0 +1,15 @@
+<h2>Current Pets:</h2>
+<table class="datagrid">
+  <thead class="datagrid">
+    <th width="90">Pet</th>
+	<th width="60">Type</th>
+  </thead>
+  
+<% for pet in @current_pets %>
+  <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+    <td align="left">&nbsp;<%= link_to pet.name, pet_path(pet) %></td>
+	<td align="left">&nbsp;<%= pet.animal.name %></td>
+  </tr>
+<% end %>
+</table>
+<p class="supertiny">&nbsp;</p>

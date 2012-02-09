@@ -1,14 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!-- need the xmlns attr for formtastic -->
 <head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>PATS :: <%= controller.controller_name.capitalize %></title>
   <title>PATS67272</title>
+	<%= favicon_link_tag %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div id="wrap">
+		<div id="header">
+			<%= link_to(image_tag('layout/PATS_logo2_900.jpg'), home_path) %>
+		</div>
+		<br />
+		<%# render :partial => 'partials/navigation' %>
 
-<%= yield %>
+		<div style="clear:both;"></div>
+    	<div id="body">
+				<% flash.each do |name, msg| %>
+	        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+	      <% end %>
+			<table border="0">
+				<tr>
+					<td>
+						<!-- if logged in, give side navigation for the vet  -->
+						<% if logged_in? %>
+							<%= render :partial => 'partials/side_nav' %>
+						<!-- otherwise display a nice collection of animal pictures  -->
+						<% else %>
+							<%= render :partial => 'partials/animal_pics' %>
+						<% end %>
+					</td>
+					<td width="5">&nbsp;</td>
+					<td><%= yield %></td>
+				</tr>
+			</table>
 
+		</div> <!-- end of body div -->
+
+		<%= render :partial => "partials/footer" %>
+	</div><!-- end of wrap div -->
 </body>
 </html>
