@@ -1,23 +1,22 @@
-<h1>Listing animals</h1>
+<h1>Animals Treated at PATS</h1><br>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @animals.each do |animal| %>
-  <tr>
-    <td><%= animal.name %></td>
-    <td><%= link_to 'Show', animal %></td>
-    <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
-    <td><%= link_to 'Destroy', animal, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<table class="datagrid">
+  <thead class="datagrid">
+    <th>Animal</th>
+    <th>Treated Here Since</th>
+		<th>&nbsp;</th>
+  </thead>
+  <% for animal in @animals %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to animal.name, animal_path(animal) %></td>
+	  <td align="center"><%= animal.created_at.strftime("%B %d, %Y") %></td>
+	  <td align="center">
+		<%= link_to(image_tag("icons/edit_dg.gif", :border => 0), edit_animal_path(animal))  %>&nbsp;
+		<%= link_to(image_tag("icons/delete_dg.gif", :border => 0), animal_path(animal), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
+	  </td>
+    </tr>
+  <% end %>
 </table>
+<p class="supertiny"></p>
 
-<br />
-
-<%= link_to 'New Animal', new_animal_path %>
+<p><strong><%= link_to "Add A New Animal", new_animal_path %></strong></p>
