@@ -1,6 +1,6 @@
 module VaccinationsHelper
   # create a helper to get the options for the visit select menu
-  # will return an array with key being visit_date : pet_name so 
+  # will return an array with key being date : pet_name so 
   # that vet can choose the right visit
   def get_visit_options
     Visit.all.map{|vi| ["#{vi.date.strftime("%m/%d/%y")} : #{vi.pet.name} (#{vi.pet.animal.name})", vi.id] }

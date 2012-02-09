@@ -10,7 +10,7 @@
 </p>
 <p>
   <strong>Visit Date:</strong>
-  <%= link_to @vaccination.visit.visit_date.strftime("%B %d, %Y"), visit_path(@vaccination.visit) %>
+  <%= link_to @vaccination.visit.date.strftime("%B %d, %Y"), visit_path(@vaccination.visit) %>
 </p>
 <p>
   <strong>Vaccine:</strong>

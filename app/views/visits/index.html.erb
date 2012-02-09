@@ -10,7 +10,7 @@
   </thead>
   <% for visit in @visits %>
     <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
-      <td><%= link_to visit.visit_date.strftime("%m/%d/%y"), visit_path(visit) %></td>
+      <td><%= link_to visit.date.strftime("%m/%d/%y"), visit_path(visit) %></td>
       <td><%= link_to visit.pet.name, pet_path(visit.pet) %> (<%= visit.pet.animal.name %>)</td>
       <td align="center"><%= visit.weight %> lbs</td>
 	  <td align="center">

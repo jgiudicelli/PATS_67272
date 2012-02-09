@@ -8,7 +8,7 @@
   
 	<% for visit in @recent_visits %>
 	  <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
-	    <td align="left"><%= link_to visit.visit_date.strftime("%m/%d/%y"), visit_path(visit) %></td>
+	    <td align="left"><%= link_to visit.date.strftime("%m/%d/%y"), visit_path(visit) %></td>
 		<td align="left">&nbsp;<%= visit.weight %> lbs</td>
 	  </tr>
 	<% end %>

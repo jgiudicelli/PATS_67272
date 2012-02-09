@@ -86,7 +86,7 @@ end
 # 
 # # Create factory for Visit class
 #   Factory.define :visit do |vi|
-#     vi.visit_date 6.months.ago.to_date
+#     vi.date 6.months.ago.to_date
 #     vi.weight 5
 #     vi.notes "The cat has a lot of hair and sheds often.  Recommend shaving the cat."
 #     vi.association :pet
