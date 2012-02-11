@@ -4,18 +4,18 @@
   <thead class="datagrid">
     <th>Owner</th>
     <th>Phone</th>
-	<th>Email</th>
-	<th>&nbsp;</th>
+		<th>Email</th>
+		<th>&nbsp;</th>
   </thead>
   <% for owner in @owners %>
     <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
       <td><%= link_to "#{owner.last_name}, #{owner.first_name}", owner_path(owner) %></td>
       <td><%= number_to_phone owner.phone %></td>
       <td><%= mail_to owner.email, owner.email, :encode => "javascript" %></td>
-	  <td align="center">
-		<%= link_to(image_tag("icons/edit_dg.gif", :border => 0), edit_owner_path(owner))  %>&nbsp;
-		<%= link_to(image_tag("icons/delete_dg.gif", :border => 0), owner_path(owner), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
-	  </td>
+	  	<td align="center">
+				<%= link_to(image_tag("icons/edit_dg.gif", :border => 0), edit_owner_path(owner))  %>
+				<%= link_to(image_tag("icons/delete_dg.gif", :border => 0), owner_path(owner), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
+	  	</td>
     </tr>
   <% end %>
 </table>
