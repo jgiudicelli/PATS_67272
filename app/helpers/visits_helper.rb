@@ -3,6 +3,6 @@ module VisitsHelper
   # will return an array with key being pet_name : owner_name so 
   # that vet can choose the right pet (many pets share same names)
   def get_pet_options
-    Pet.all.active.map{|p| ["#{p.name} : #{p.owner.name}", p.id] }
+    Pet.active.map{|p| ["#{p.name} : #{p.owner.name}", p.id] }
   end
 end

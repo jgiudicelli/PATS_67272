@@ -199,10 +199,32 @@ a:hover {
   text-decoration:underline;
 }
 
+/********** FLASH MSGS ********/
+#flash_notice, #flash_error, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+	color: #008000;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+	color: #800000;
+}
+
+/********** FORMS ********/
+.field, .actions {
+	padding: 5px 0px 5px 0px;
+}
 
 /********** FROM SCAFFOLDING ********/
 
-.fieldWithErrors {
+/*.fieldWithErrors {
   padding: 0px;
   background-color: red;
   display: table;
@@ -210,7 +232,7 @@ a:hover {
 
 #errorExplanation {
   width: 260px;
-  border: 2px solid red;
+  border: 0.5px solid red;
   padding: 5	px;
   padding-bottom: 12px;
   margin-bottom: 20px;
@@ -237,7 +259,7 @@ a:hover {
 #errorExplanation ul li {
   font-size: 12px;
   list-style: square;
-}
+}*/
 
 
 
