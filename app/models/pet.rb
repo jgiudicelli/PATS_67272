@@ -36,13 +36,11 @@ class Pet < ActiveRecord::Base
   #
   # First, make sure a name exists
   validates :name, :presence => true
-  # Second, make sure an animal_id is given and is one of the animal types PATS treats
-  validates :animal_id, :presence => true
-  # validates :animal_id, :inclusion => Animal.all.map{|a| a.id}
-  # Third, make sure the owner_id is given and is currently an active owner in the system
-  validates :owner_id, :presence => true
-  # validates :owner_id, :inclusion => Owner.active.all.map{|o| o.id}
-
+  # Second, make sure the animal is one of the types PATS treats
+  validate :animal_type_treated_by_PATS
+  # Third, make sure the owner_id is in the PATS system 
+  validate :owner_is_active_in_PATS_system
+  
 
   # Misc Methods and Constants
   # -----------------------------
@@ -51,4 +49,30 @@ class Pet < ActiveRecord::Base
     return "Female" if female
     "Male"
   end  
+  
+  
+  # Use private methods to execute the custom validations
+  # -----------------------------
+  private
+  def animal_type_treated_by_PATS
+    # get an array of all animal ids PATS treats
+    treated_animal_ids = Animal.all.map{|a| a.id}
+    # add error unless the animal id of the pet is in the array of possible animal ids
+    unless treated_animal_ids.include?(self.animal_id)
+      errors.add(:animal, "is an animal type not treated by PATS")
+      return false   # not necessary, but I like to add it ...
+    end
+    return true  # also not strictly necessary ...
+  end
+  
+  def owner_is_active_in_PATS_system
+    # get an array of all active owners in the PATS system
+    all_owner_ids = Owner.active.all.map{|o| o.id}
+    # add error unless the owner id of the pet is in the array of active owners
+    unless all_owner_ids.include?(self.owner_id)
+      errors.add(:owner, "is not an active owner in PATS")
+      return false
+    end
+    return true
+  end
 end
