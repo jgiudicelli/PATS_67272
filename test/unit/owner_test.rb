@@ -98,6 +98,11 @@ class OwnerTest < ActiveSupport::TestCase
       assert_equal "Heimann, Alex", @alex.name
     end
     
+    # test the method 'proper_name' works
+    should "shows that proper_name method works" do
+      assert_equal "Alex Heimann", @alex.proper_name
+    end
+    
     # test the callback is working 'reformat_phone'
     should "shows that Mark's phone is stripped of non-digits" do
       assert_equal "4122688211", @mark.phone
