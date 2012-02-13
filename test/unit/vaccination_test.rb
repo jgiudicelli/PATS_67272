@@ -96,33 +96,31 @@ class VaccinationTest < ActiveSupport::TestCase
       assert_equal 1, Vaccination.for_vaccine(@rabies.id).size
     end
     
-    # test the method 'vaccine_matches_animal_type'
-    should "not allow vaccines that are inappropriate to the animal" do
-      # # Testing as a validation...
-      # # create a visit for Pork Chop (dog)
-      # @visit_pork_chop = Factory.create(:visit, :pet => @pork_chop)
-      # 
-      # # make sure a dog vaccine (heartworm) is okay (valid)
-      # good = Factory.build(:vaccination, :visit => @visit_pork_chop, :vaccine => @heartworm)
-      # assert good.valid?
-      # 
-      # # make sure a cat vaccine (leukemia) is invalid
-      # bad = Factory.build(:vaccination, :visit => @visit_pork_chop, :vaccine => @leukemia)
-      # deny bad.valid?
-      # 
-      # # destroy the visit by Pork Chop
-      # @visit_pork_chop.destroy
-      
-      # Testing as a public method...
-      # test that the proper match is recognized as such
-      assert @vacc1.vaccine_matches_animal_type?
-      # test that giving Pork Chop the dog the cat leukemia vaccine is bad
-      @visit_pork_chop = Factory.create(:visit, :pet => @pork_chop)
-      bad_vaccination = Factory.build(:vaccination, :visit => @visit_pork_chop, :vaccine => @leukemia)
-      deny bad_vaccination.vaccine_matches_animal_type?
-      @visit_pork_chop.destroy
-      
+    # test the custom validation 'vaccine_offered_by_PATS'
+    should "identify a vaccine not offered at PATS as invalid" do
+      # using 'build' instead of 'create' so not added to db; vaccine will not be in the system (only in memory)
+      @catnip = Factory.build(:vaccine, :name => "Catnippititus", :animal => @cat)
+      catnip_vaccination = Factory.build(:vaccination, :visit => @visit1, :vaccine => @catnip)
+      deny catnip_vaccination.valid?
+      # already tested valid vaccinations, so only test the bad cases are kept out here...
     end
     
+    # test the custom validation 'vaccine_matches_animal_type'
+    should "not allow vaccines that are inappropriate to the animal" do
+      # Testing as a validation...
+      # create a visit for Pork Chop (dog)
+      @visit_pork_chop = Factory.create(:visit, :pet => @pork_chop)
+      
+      # make sure a dog vaccine (heartworm) is okay (valid)
+      good_vaccination = Factory.build(:vaccination, :visit => @visit_pork_chop, :vaccine => @heartworm)
+      assert good_vaccination.valid?
+      
+      # make sure a cat vaccine (leukemia) is invalid
+      bad_vaccination = Factory.build(:vaccination, :visit => @visit_pork_chop, :vaccine => @leukemia)
+      deny bad_vaccination.valid?
+      
+      # destroy the visit by Pork Chop
+      @visit_pork_chop.destroy    
+    end   
   end
 end

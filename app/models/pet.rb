@@ -28,11 +28,12 @@ class Pet < ActiveRecord::Base
   # find all pets that have a name like some term or are and animal like some term
   scope :search, lambda { |term| joins(:animal).where('pets.name LIKE ? OR animals.name LIKE ?', "#{term}%", "#{term}%").order("pets.name") }
 
+
   # Validations
   # -----------------------------
   # System note:   not requiring DOB because may not be known (e.g., adopted pet)
-  # Teaching note: could have done validates_presence_of :name, :animal_id, :owner_id, but 
-  #                using a different method discussed in class to show alternative
+  # Teaching note: could have done validates_presence_of :name, but using a different
+  #                method discussed in class to show alternative
   #
   # First, make sure a name exists
   validates :name, :presence => true

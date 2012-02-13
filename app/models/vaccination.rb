@@ -21,20 +21,27 @@ class Vaccination < ActiveRecord::Base
   # -----------------------------
   validates_presence_of :vaccine_id, :visit_id
   # make sure the vaccine selected is one that is offered by PATS
-  # validates_inclusion_of :vaccine_id, :in => Vaccine.all.map{|v| v.id}, :message => "is not available at PATS"
-  # validates_inclusion_of :vaccine_id, :in => (1..54).to_a, :message => "is not available at PATS"
-
+  validate :vaccine_offered_by_PATS
   # make sure that the vaccine is appropriate for the animal getting it
-  # NOTE: this needs to be commented out for unit tests because it doesn't play nice
-  # with factory_girl
-  validate :vaccine_matches_animal_type?
-
+  # NOTE: This method must be tested manually in console -- comment it out before running testing suite
+  validate :vaccine_matches_animal_type
+  
+  
+  # Use private methods to execute the custom validations
+  # -----------------------------
   private
-  #   NOTE: this method is tested in both console and in a browser and it works.
-  #   However, it does not play nicely with unit testing and factory_girl.  For
-  #   testing purposes, comment out the validate method that calls it as well as 
-  #   the 'private' keyword so it can be tested as a public method. 
-  def vaccine_matches_animal_type?
+  def vaccine_offered_by_PATS
+    # get an array of all vaccine ids this animal can get
+    possible_vaccines_ids = Vaccine.all.map{|v| v.id}
+    # add error unless the vaccine id is in the array of possible vaccines
+    unless possible_vaccines_ids.include?(self.vaccine_id)
+      errors.add(:vaccine, "is not available at PATS")
+      return false
+    end
+    return true
+  end
+
+  def vaccine_matches_animal_type
     # find the animal type for the visit in question
     animal = Visit.find(self.visit_id).pet.animal
     # get an array of all vaccine ids this animal can get
@@ -46,5 +53,4 @@ class Vaccination < ActiveRecord::Base
     end
     return true
   end
-
 end

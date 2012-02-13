@@ -10,9 +10,7 @@ class PetTest < ActiveSupport::TestCase
   
   # Validation macros...
   should validate_presence_of(:name)
-  should validate_presence_of(:animal_id)
-  should validate_presence_of(:owner_id)
-  
+ 
 
   # ---------------------------------
   # Testing other methods with a context
@@ -23,6 +21,7 @@ class PetTest < ActiveSupport::TestCase
       @dog = Factory.create(:animal, :name => "Dog")
       @alex = Factory.create(:owner)
       @mark = Factory.create(:owner, :first_name => "Mark")
+      @rachel = Factory.create(:owner, :first_name => "Rachel", :active => false)
       @dusty = Factory.create(:pet, :animal => @cat, :owner => @alex, :female => false)
       @polo = Factory.create(:pet, :animal => @cat, :owner => @alex, :name => "Polo", :active => false)
       @pork_chop = Factory.create(:pet, :animal => @dog, :owner => @mark, :name => "Pork Chop")
@@ -33,6 +32,7 @@ class PetTest < ActiveSupport::TestCase
       @pork_chop.destroy
       @polo.destroy
       @dusty.destroy
+      @rachel.destroy
       @mark.destroy
       @alex.destroy
       @dog.destroy
@@ -81,6 +81,24 @@ class PetTest < ActiveSupport::TestCase
       assert_equal "Female", @polo.gender
       assert_equal "Female", @pork_chop.gender
       assert_equal "Male", @dusty.gender
+    end
+    
+    # test the custom validation 'animal_type_treated_by_PATS'
+    should "identify a non-PATS animal type as invalid" do
+      # using 'build' instead of 'create' so not added to db; animal will not be in the system (only in memory)
+      @turtle = Factory.build(:animal, :name => "Turtle")
+      turtle_pet = Factory.build(:pet, :animal => @turtle, :owner => @mark, :name => "Surfer")
+      deny turtle_pet.valid?
+      # we've created plenty of valid pets earlier, so not testing the validation allows good cases here...
+    end
+    
+    # test the custom validation 'owner_is_active_in_PATS_system'
+    should "identify a non-active PATS owner as invalid" do
+      # remembering that Rachel is an inactive owner, let's build her pet in memory only (if we use
+      # 'Factory.create' we will get a validation error and the test will stop prematurely.)
+      inactive_owner = Factory.build(:pet, :animal => @dog, :owner => @rachel, :name => "Daisy")
+      deny inactive_owner.valid?
+      # again we've created plenty of valid pets earlier, so only testing the bad cases here...
     end
   end
 end
