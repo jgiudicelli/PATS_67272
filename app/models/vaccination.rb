@@ -25,15 +25,15 @@ class Vaccination < ActiveRecord::Base
   # validates_inclusion_of :vaccine_id, :in => (1..54).to_a, :message => "is not available at PATS"
 
   # make sure that the vaccine is appropriate for the animal getting it
-  # needs to be commented out for unit tests because it doesn't play nice
+  # NOTE: this needs to be commented out for unit tests because it doesn't play nice
   # with factory_girl
-  # validate :vaccine_matches_animal_type?
+  validate :vaccine_matches_animal_type?
 
   private
-  # NOTE: this method is tested in both console and in a browser and it works.
-  # However, it does not play nicely with unit testing and needs to be commented 
-  # out before testing.  (Actually, just comment out the validate method that 
-  # calls it.)
+  #   NOTE: this method is tested in both console and in a browser and it works.
+  #   However, it does not play nicely with unit testing and factory_girl.  For
+  #   testing purposes, comment out the validate method that calls it as well as 
+  #   the 'private' keyword so it can be tested as a public method. 
   def vaccine_matches_animal_type?
     # find the animal type for the visit in question
     animal = Visit.find(self.visit_id).pet.animal

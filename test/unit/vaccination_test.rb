@@ -97,8 +97,32 @@ class VaccinationTest < ActiveSupport::TestCase
     end
     
     # test the method 'vaccine_matches_animal_type'
-    # should "not allow vaccines that are inappropriate to the animal" do
-    # end
+    should "not allow vaccines that are inappropriate to the animal" do
+      # # Testing as a validation...
+      # # create a visit for Pork Chop (dog)
+      # @visit_pork_chop = Factory.create(:visit, :pet => @pork_chop)
+      # 
+      # # make sure a dog vaccine (heartworm) is okay (valid)
+      # good = Factory.build(:vaccination, :visit => @visit_pork_chop, :vaccine => @heartworm)
+      # assert good.valid?
+      # 
+      # # make sure a cat vaccine (leukemia) is invalid
+      # bad = Factory.build(:vaccination, :visit => @visit_pork_chop, :vaccine => @leukemia)
+      # deny bad.valid?
+      # 
+      # # destroy the visit by Pork Chop
+      # @visit_pork_chop.destroy
+      
+      # Testing as a public method...
+      # test that the proper match is recognized as such
+      assert @vacc1.vaccine_matches_animal_type?
+      # test that giving Pork Chop the dog the cat leukemia vaccine is bad
+      @visit_pork_chop = Factory.create(:visit, :pet => @pork_chop)
+      bad_vaccination = Factory.build(:vaccination, :visit => @visit_pork_chop, :vaccine => @leukemia)
+      deny bad_vaccination.vaccine_matches_animal_type?
+      @visit_pork_chop.destroy
+      
+    end
     
   end
 end
