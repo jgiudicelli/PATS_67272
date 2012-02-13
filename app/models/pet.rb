@@ -26,7 +26,7 @@ class Pet < ActiveRecord::Base
   # get all the pets born before a certain date
   scope :born_before, lambda {|dob| where('date_of_birth < ?', dob) }
   # find all pets that have a name like some term or are and animal like some term
-  scope :search, lambda { |term| joins(:animal).where('pets.name LIKE ? OR animals.name LIKE ?', "#{term}%", "#{term}%").order("pets.name") }
+  scope :search, lambda { |term| joins(:animal).where('pets.name LIKE ?', "#{term}%").order("pets.name") }
 
 
   # Validations

@@ -64,16 +64,22 @@ class PetTest < ActiveSupport::TestCase
       assert_equal 1, Pet.males.size 
     end
     
-    # test the named scope 'for_owner'
-    should "have named scope for_owner that works" do
+    # test the scope 'for_owner'
+    should "have a scope for_owner that works" do
       assert_equal 1, Pet.for_owner(@mark.id).size
       assert_equal 2, Pet.for_owner(@alex.id).size
     end    
     
-    # test the named scope 'by_animal'
-    should "have named scope by_animal that works" do
+    # test the scope 'by_animal'
+    should "have a scope by_animal that works" do
       assert_equal 1, Pet.by_animal(@dog.id).size
       assert_equal 2, Pet.by_animal(@cat.id).size
+    end
+    
+    # test the scope 'search'
+    should "shows that search for pets works" do
+      assert_equal 2, Pet.search("Po").size
+      assert_equal 1, Pet.search("Dus").size
     end
     
     # test the method 'gender'

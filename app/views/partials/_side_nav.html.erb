@@ -4,9 +4,9 @@
 	<ul>
 	<!-- OPTIONS FOR EVERYONE -->
 		<li>
-			<% form_tag(search_path) do %>
-				<%= text_field_tag('query') %>
-				<%= submit_tag('Search') %>
+			<%= form_tag(search_path) do %>
+				<%= text_field_tag('query', '', :size => 12) %>
+				<%= submit_tag('Find') %>
 			<% end %>
 		</li>
 		<li><%= link_to 'Owners', owners_path %></li>

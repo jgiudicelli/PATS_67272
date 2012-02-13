@@ -23,7 +23,7 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2012-02-13T09:24:11-05:00">2012-02-13T09:24:11-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2012-02-13T09:43:01-05:00">2012-02-13T09:43:01-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -34,7 +34,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.69
+         2.76
        </span>
     </span> hits/line)
   </h2>
@@ -266,7 +266,7 @@
         <td>23</td>
         <td>23</td>
         <td>0</td>
-        <td>8.8</td>
+        <td>9.7</td>
       </tr>
       
       <tr>
@@ -276,7 +276,7 @@
         <td>32</td>
         <td>32</td>
         <td>0</td>
-        <td>19.8</td>
+        <td>20.8</td>
       </tr>
       
       <tr>
@@ -479,7 +479,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         8.53
+         8.8
        </span>
     </span> hits/line)
   </h2>
@@ -521,7 +521,7 @@
         <td>23</td>
         <td>23</td>
         <td>0</td>
-        <td>8.8</td>
+        <td>9.7</td>
       </tr>
       
       <tr>
@@ -531,7 +531,7 @@
         <td>32</td>
         <td>32</td>
         <td>0</td>
-        <td>19.8</td>
+        <td>20.8</td>
       </tr>
       
       <tr>
@@ -3845,8 +3845,8 @@
           <code class="ruby">  # search for all the owners in the system by either first or last name</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="19">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="3" data-linenumber="19">
+          <span class="hits">3</span>
           
           <code class="ruby">  scope :search, lambda { |term| where('first_name LIKE ? OR last_name LIKE ?', &quot;#{term}%&quot;, &quot;#{term}%&quot;) }</code>
         </li>
@@ -4103,20 +4103,20 @@
           <code class="ruby">     def reformat_phone</code>
         </li>
       
-        <li class="covered" data-hits="61" data-linenumber="62">
-          <span class="hits">61</span>
+        <li class="covered" data-hits="67" data-linenumber="62">
+          <span class="hits">67</span>
           
           <code class="ruby">       phone = self.phone.to_s  # change to string in case input as all numbers </code>
         </li>
       
-        <li class="covered" data-hits="61" data-linenumber="63">
-          <span class="hits">61</span>
+        <li class="covered" data-hits="67" data-linenumber="63">
+          <span class="hits">67</span>
           
           <code class="ruby">       phone.gsub!(/[^0-9]/,&quot;&quot;) # strip all non-digits</code>
         </li>
       
-        <li class="covered" data-hits="61" data-linenumber="64">
-          <span class="hits">61</span>
+        <li class="covered" data-hits="67" data-linenumber="64">
+          <span class="hits">67</span>
           
           <code class="ruby">       self.phone = phone       # reset self.phone to new string</code>
         </li>
@@ -4325,10 +4325,10 @@
           <code class="ruby">  # find all pets that have a name like some term or are and animal like some term</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="29">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="3" data-linenumber="29">
+          <span class="hits">3</span>
           
-          <code class="ruby">  scope :search, lambda { |term| joins(:animal).where('pets.name LIKE ? OR animals.name LIKE ?', &quot;#{term}%&quot;, &quot;#{term}%&quot;).order(&quot;pets.name&quot;) }</code>
+          <code class="ruby">  scope :search, lambda { |term| joins(:animal).where('pets.name LIKE ?', &quot;#{term}%&quot;).order(&quot;pets.name&quot;) }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="30">
@@ -4511,8 +4511,8 @@
           <code class="ruby">    # get an array of all animal ids PATS treats</code>
         </li>
       
-        <li class="covered" data-hits="176" data-linenumber="60">
-          <span class="hits">176</span>
+        <li class="covered" data-hits="185" data-linenumber="60">
+          <span class="hits">185</span>
           
           <code class="ruby">    treated_animal_ids = Animal.all.map{|a| a.id}</code>
         </li>
@@ -4523,8 +4523,8 @@
           <code class="ruby">    # add error unless the animal id of the pet is in the array of possible animal ids</code>
         </li>
       
-        <li class="covered" data-hits="62" data-linenumber="62">
-          <span class="hits">62</span>
+        <li class="covered" data-hits="65" data-linenumber="62">
+          <span class="hits">65</span>
           
           <code class="ruby">    unless treated_animal_ids.include?(self.animal_id)</code>
         </li>
@@ -4547,8 +4547,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="60" data-linenumber="66">
-          <span class="hits">60</span>
+        <li class="covered" data-hits="63" data-linenumber="66">
+          <span class="hits">63</span>
           
           <code class="ruby">    return true  # also not strictly necessary ...</code>
         </li>
@@ -4577,8 +4577,8 @@
           <code class="ruby">    # get an array of all active owners in the PATS system</code>
         </li>
       
-        <li class="covered" data-hits="176" data-linenumber="71">
-          <span class="hits">176</span>
+        <li class="covered" data-hits="185" data-linenumber="71">
+          <span class="hits">185</span>
           
           <code class="ruby">    all_owner_ids = Owner.active.all.map{|o| o.id}</code>
         </li>
@@ -4589,8 +4589,8 @@
           <code class="ruby">    # add error unless the owner id of the pet is in the array of active owners</code>
         </li>
       
-        <li class="covered" data-hits="62" data-linenumber="73">
-          <span class="hits">62</span>
+        <li class="covered" data-hits="65" data-linenumber="73">
+          <span class="hits">65</span>
           
           <code class="ruby">    unless all_owner_ids.include?(self.owner_id)</code>
         </li>
@@ -4613,8 +4613,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="60" data-linenumber="77">
-          <span class="hits">60</span>
+        <li class="covered" data-hits="63" data-linenumber="77">
+          <span class="hits">63</span>
           
           <code class="ruby">    return true</code>
         </li>
