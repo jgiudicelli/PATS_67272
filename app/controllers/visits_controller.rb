@@ -42,7 +42,7 @@ class VisitsController < ApplicationController
   def destroy
     @visit = Visit.find(params[:id])
     @visit.destroy
-    flash[:notice] = "Successfully removed the visit of #{@visit.pet.name} on #{@visit.date.strftime('%b %%e')}."
+    flash[:notice] = "Successfully removed the visit of #{@visit.pet.name} on #{@visit.date.strftime('%b %e')}."
     redirect_to visits_url
   end
 end

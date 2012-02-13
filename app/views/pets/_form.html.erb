@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :owner_id %><br />
-    <%= f.collection_select :owner_id, Owner.all.active, :id, :name, :prompt => "Select ..." %>
+    <%= f.collection_select :owner_id, Owner.active.all, :id, :name, :prompt => "Select ..." %>
   </div>
   <div class="field">
     <%= f.label :name %><br />
