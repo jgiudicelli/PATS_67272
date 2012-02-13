@@ -19,11 +19,9 @@ class Vaccination < ActiveRecord::Base
   
   # Validations
   # -----------------------------
-  validates_presence_of :vaccine_id, :visit_id
   # make sure the vaccine selected is one that is offered by PATS
   validate :vaccine_offered_by_PATS
   # make sure that the vaccine is appropriate for the animal getting it
-  # NOTE: This method must be tested manually in console -- comment it out before running testing suite
   validate :vaccine_matches_animal_type
   
   

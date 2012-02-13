@@ -9,10 +9,7 @@ class VaccinationTest < ActiveSupport::TestCase
   should belong_to(:visit)
   should belong_to(:vaccine)
 
-  # Validation macros...
-  should validate_presence_of(:vaccine_id)
-  should validate_presence_of(:visit_id)
-  
+
   # ---------------------------------
   # Testing other methods with a context
   context "Creating four vaccinations from three visits from two pets" do
@@ -20,7 +17,7 @@ class VaccinationTest < ActiveSupport::TestCase
     setup do 
       @cat = Factory.create(:animal)
       @dog = Factory.create(:animal, :name => "Dog")
-      @rabies = Factory.create(:vaccine, :name => "Rabies", :animal => @dog)
+      @rabies = Factory.create(:vaccine, :name => "Rabies", :animal => @cat)
       @leukemia = Factory.create(:vaccine, :animal => @cat, :duration => nil)
       @heartworm = Factory.create(:vaccine, :name => "Heartworm", :animal => @dog)
       @alex = Factory.create(:owner)
@@ -37,7 +34,7 @@ class VaccinationTest < ActiveSupport::TestCase
       @vacc2 = Factory.create(:vaccination, :visit => @visit2, :vaccine => @rabies)
       @vacc3 = Factory.create(:vaccination, :visit => @visit2, :vaccine => @leukemia)
       @vacc4 = Factory.create(:vaccination, :visit => @visit3, :vaccine => @leukemia)
-      @vacc5 = Factory.create(:vaccination, :visit => @visit4, :vaccine => @heartworm)
+      @vacc5 = Factory.create(:vaccination, :visit => @visit4, :vaccine => @rabies)
     end
     
     # and provide a teardown method as well
@@ -93,7 +90,7 @@ class VaccinationTest < ActiveSupport::TestCase
     # test the named scope 'for_vaccine'
     should "have named scope called for_visit that works" do
       assert_equal 3, Vaccination.for_vaccine(@leukemia.id).size
-      assert_equal 1, Vaccination.for_vaccine(@rabies.id).size
+      assert_equal 2, Vaccination.for_vaccine(@rabies.id).size
     end
     
     # test the custom validation 'vaccine_offered_by_PATS'
@@ -107,7 +104,7 @@ class VaccinationTest < ActiveSupport::TestCase
     
     # test the custom validation 'vaccine_matches_animal_type'
     should "not allow vaccines that are inappropriate to the animal" do
-      # Testing as a validation...
+      # Testing both parts of the validation this time for demo purposes...
       # create a visit for Pork Chop (dog)
       @visit_pork_chop = Factory.create(:visit, :pet => @pork_chop)
       
