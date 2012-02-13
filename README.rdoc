@@ -1,4 +1,4 @@
-This is a basic Rails app that was built as a class demonstration in the spring of 2013.  This is the first of several basic projects designed help students become more familiar with the Rails 3 framework.
+This is a basic Rails app that was built as a class demonstration in the spring of 2012.  This is the first of several basic projects designed help students become more familiar with the Rails 3 framework.
 
 The class is Application Design & Development and is for Information Systems students at Carnegie Mellon University (campuses both in Pittsburgh and Doha).  We have posted this code on github.com in a public directory so that (a) it 
 is readily accessible to students in both PA and Qatar and (b) that students 
