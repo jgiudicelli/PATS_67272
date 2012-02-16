@@ -70,7 +70,7 @@ class VaccinationTest < ActiveSupport::TestCase
     end
     
     # test the named scope 'chronological'
-    should "list vaccinations in chronological and alphabetical order" do
+    should "list vaccinations in chronological order" do
       assert_equal 5, Vaccination.chronological.size # quick check of size
       dates = Array.new
       # get array of visit dates in order
