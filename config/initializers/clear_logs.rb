@@ -11,3 +11,5 @@ if Rails.env.development?
     end
   end
 end
+
+# Source: https://gist.github.com/1836248 by krsmurata
