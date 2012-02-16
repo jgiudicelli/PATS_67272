@@ -78,9 +78,9 @@ class OwnerTest < ActiveSupport::TestCase
       assert_equal "Alex", @alex.first_name
       assert_equal "Mark", @mark.first_name
       assert_equal "Rachel", @rachel.first_name
-      assert_equal true, @alex.active
-      assert_equal true, @mark.active
-      assert_equal false, @rachel.active
+      assert @alex.active
+      assert @mark.active
+      deny @rachel.active
     end
     
     # test the scope 'alphabetical'
@@ -89,13 +89,13 @@ class OwnerTest < ActiveSupport::TestCase
     end
     
     # test the scope 'active'
-    should "shows that there are two active" do
+    should "shows that there are two active owners" do
       assert_equal 2, Owner.active.size
     end
     
     # test the scope 'search'
-    should "shows that search for owner works" do
-      assert_equal 3, Owner.search("Heim").size
+    should "shows that search for owner by either (part of) last or first name works" do
+      assert_equal 3, Owner.search("Hei").size
       assert_equal 1, Owner.search("Mark").size
     end
     

@@ -1,8 +1,5 @@
 require 'test_helper'
 
-# NOTE: validates_inclusion_of :vaccine_id doesn't play nice with Shoulda
-# and needs to be commented out before running tests
-
 class VaccinationTest < ActiveSupport::TestCase
   # Start by using ActiveRecord macros
   # Relationship macros...
