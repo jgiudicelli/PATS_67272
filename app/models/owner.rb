@@ -6,7 +6,7 @@ class Owner < ActiveRecord::Base
   # -----------------------------
   has_many :pets # :dependent => :destroy  (:nullify orphans the record)
   has_many :visits, :through => :pets
-  belongs_to :user  
+  # belongs_to :user  
   
   
   # Scopes

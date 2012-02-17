@@ -91,7 +91,7 @@ class OwnerTest < ActiveSupport::TestCase
     # test the scope 'active'
     should "shows that there are two active owners" do
       assert_equal 2, Owner.active.size
-      assert_equal ["Alex", "Mark"], Owner.active.alphabetical.map{|o| o.first_name}
+      assert_equal ["Alex", "Mark"], Owner.active.alphabetical. map{|o| o.first_name}
     end
     
     # test the scope 'search'

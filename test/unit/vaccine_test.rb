@@ -5,6 +5,7 @@ class VaccineTest < ActiveSupport::TestCase
   # Relationship macros...
   should have_many(:vaccinations)
   should have_many(:visits).through(:vaccinations)
+  should belong_to(:animal)
   
   # Validation macros...
   should validate_presence_of(:name)
