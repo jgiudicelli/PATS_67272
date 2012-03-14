@@ -42,11 +42,9 @@ class OwnersController < ApplicationController
   end
 
   def destroy
-    def destroy
-      @owner = Owner.find(params[:id])
-      @owner.destroy
-      flash[:notice] = "Successfully removed #{@owner.proper_name} from the PATS system."
-      redirect_to owners_url
-    end
+    @owner = Owner.find(params[:id])
+    @owner.destroy
+    flash[:notice] = "Successfully removed #{@owner.proper_name} from the PATS system."
+    redirect_to owners_url
   end
 end
